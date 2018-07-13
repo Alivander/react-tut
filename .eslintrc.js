@@ -34,6 +34,7 @@ module.exports = {
         }],
         'no-plusplus': ['error', {
             "allowForLoopAfterthoughts": true
-        }]
+        }],
+        'jsx-a11y/label-has-for': 'off'
     }
 };
