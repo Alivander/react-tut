@@ -28,7 +28,7 @@ function News(props) {
             <ul className={b('list')}>
                 {list}
             </ul>
-            <p className={props.data.length > 0 ? '' : 'none'}>Всего новостей: {props.data.length}</p>
+            <p className={props.data.length > 0 ? '' : 'none'}>Total news count: {props.data.length}</p>
         </div>
     );
 }
