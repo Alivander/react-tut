@@ -1,5 +1,9 @@
 @import '../../common/variables.scss';
 
+label {
+    display: block;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -13,4 +17,8 @@
 .main__title,
 .main__welcom {
     text-align: center;
+}
+
+.none {
+    display: none;
 }
