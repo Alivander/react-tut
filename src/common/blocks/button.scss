@@ -1,0 +1,32 @@
+@import '../variables.scss';
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 150px;
+    padding: 10px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: white;
+    border: none;
+    outline: none;
+    background: $gray;
+    box-shadow: none;
+    opacity: 0.8;
+
+    &:focus,
+    &:hover {
+        opacity: 1;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+    }
+}

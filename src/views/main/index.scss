@@ -5,20 +5,20 @@ label {
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     min-height: 100vh;
-    padding: $s-field;
 }
 
-.main__title,
-.main__welcom {
-    text-align: center;
+.main__header {
+    padding: 20px 30px;
+
+    color: white;
+
+    background: $d-gray;
 }
 
-.none {
-    display: none;
+.main__title {
+    margin: 0;
+
+    font-size: 1.6em;
+    font-weight: 400;
 }

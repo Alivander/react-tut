@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import b_ from 'b_';
 import Article from '../article';
-// import './index.css';
+import './index.css';
 
 const b = b_.with('news');
 
@@ -12,7 +12,7 @@ function News(props) {
     if (props.data.length > 0) {
         list = props.data.map((currentNew, i) => {
             const item = (
-                <li key={i}>
+                <li key={i} className={b('item')}>
                     <Article data={currentNew} />
                 </li>
             );
@@ -25,10 +25,10 @@ function News(props) {
 
     return (
         <div className={b()}>
-            <ul>
+            <ul className={b('list')}>
                 {list}
             </ul>
-            <p className={props.data.length > 0 ? '' : 'none'}>Всго новостей: {props.data.length}</p>
+            <p className={props.data.length > 0 ? '' : 'none'}>Всего новостей: {props.data.length}</p>
         </div>
     );
 }

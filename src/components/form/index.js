@@ -1,9 +1,10 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import b_ from 'b_';
-// import './index.css';
+import './index.css';
 
 const b = b_.with('form');
+const btn = b_.with('button');
 
 class Form extends Component {
     constructor(props) {
@@ -47,6 +48,13 @@ class Form extends Component {
             preview: this.preview.current.value,
             text: this.text.current.value,
         });
+        this.author.current.value = '';
+        this.preview.current.value = '';
+        this.text.current.value = '';
+        this.checkbox.current.checked = false;
+        this.setState({
+            agreeNotChecked: true,
+        });
     }
 
     render() {
@@ -54,41 +62,46 @@ class Form extends Component {
 
         return (
             <form className={b()}>
-                <label>
+                <label className={b('field')}>
                     Author:
                     <input
+                        className={b('input')}
                         type='text'
                         placeholder='input author'
                         ref={this.author}
                         onChange={e => this.onFieldChange(e, 'authorIsEmpty')}
                     />
                 </label>
-                <label>
+                <label className={b('field')}>
                     Preview news:
                     <input
+                        className={b('input')}
                         type='text'
                         placeholder='input preview'
                         ref={this.preview}
                         onChange={e => this.onFieldChange(e, 'previewIsEmpty')}
                     />
                 </label>
-                <label>
+                <label className={b('field')}>
                     Text news:
                     <textarea
+                        className={b('input')}
                         placeholder='input text'
                         ref={this.text}
                         onChange={e => this.onFieldChange(e, 'textIsEmpty')}
                     />
                 </label>
-                <label>
-                    I agree with the rules:
+                <label className={`${b('field', { big: true })}`}>
                     <input
                         type='checkbox'
+                        hidden
                         ref={this.checkbox}
                         onClick={e => this.onCheckRule(e)}
                     />
+                    <span className={b('checkbox')}>I agree with the rules</span>
                 </label>
                 <button
+                    className={`${btn()} ${b('submit')}`}
                     type='button'
                     ref={this.btnSend}
                     disabled={agreeNotChecked || authorIsEmpty || textIsEmpty}

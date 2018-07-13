@@ -25,9 +25,6 @@ class Main extends Component {
                 <header className={b('header')}>
                     <h1 className={b('title')}>Sample SPA to React</h1>
                 </header>
-                <p className={b('welcom')}>
-                    Welcom! :)
-                </p>
                 <Form callback={news => this.addNews(news)} />
                 <News data={this.state.news} />
             </div>

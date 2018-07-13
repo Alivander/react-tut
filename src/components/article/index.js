@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import b_ from 'b_';
-// import './index.css';
+import './index.css';
 
 const b = b_.with('article');
+const btn = b_.with('button');
 
 class Article extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Article extends Component {
 
     handleClick(evt) {
         evt.preventDefault();
-        this.setState({ visible: true });
+        this.setState({ visible: !this.state.visible });
     }
 
     render() {
@@ -24,16 +25,20 @@ class Article extends Component {
 
         return (
             <article className={b()}>
-                <h3>{author}</h3>
-                <p>{preview}</p>
-                <button
-                    type='button'
-                    className={this.state.visible ? 'none' : ''}
-                    onClick={e => this.handleClick(e)}
-                >
-                    More info
-                </button>
-                <p className={this.state.visible ? '' : 'none'}>{text}</p>
+                <header className={b('header')}>
+                    <div>
+                        <h3 className={b('title')}>{author}</h3>
+                        <p>{preview}</p>
+                    </div>
+                    <button
+                        type='button'
+                        className={`${btn()} ${b('toggle', { open: this.state.visible ? 'on' : 'off' })}`}
+                        onClick={e => this.handleClick(e)}
+                    >
+                        {this.state.visible ? 'Close' : 'More info'}
+                    </button>
+                </header>
+                <div className={this.state.visible ? b('text') : 'none'}>{text}</div>
             </article>
         );
     }

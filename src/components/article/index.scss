@@ -1,0 +1,38 @@
+@import '../../common/variables.scss';
+
+.article__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.article__title {
+    margin-top: 0;
+}
+
+.article__toggle {
+    &::after {
+        display: block;
+
+        width: 10px;
+        height: 10px;
+        margin-left: 10px;
+
+        content: '';
+
+        border: 2px solid white;
+        border-top: none;
+        border-left: none;
+
+        transition-duration: 0.2s;
+        transform-origin: center;
+    }
+
+    &_open_on::after {
+        transform: rotate(-135deg) translateY(-2px);
+    }
+
+    &_open_off::after {
+        transform: rotate(-45deg);
+    }
+}
